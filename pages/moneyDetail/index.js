@@ -28,10 +28,10 @@ Page({
     this.setData({ index: e.currentTarget.dataset.index, list: [], page: 1 });
     this.getList();
   },
+  async getList() {},
   onRangeComplete(e) {
     const { begin, end } = e.detail;
     this.setData({ begin, end, list: [], page: 1 });
     this.getList();
-  },
-  async getList() {}
+  }
 });

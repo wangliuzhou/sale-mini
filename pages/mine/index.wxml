@@ -20,7 +20,7 @@
 		</view>
 		<view class="text-xxl text-orange">{{info.credit1||'-/-'}}</view>
 	</view>
-	<view class="flex get-money" style='flex:0.8'>
+	<view class="flex get-money" style='flex:0.8' bindtap='goWithdraw'>
 		<image src='/images/mine/tx.png' />
 		<view class='text-orange'>提现</view>
 	</view>
@@ -41,15 +41,9 @@
 		</block>
 	</scroll-view>
 </view>
-<view
- class='phone text-xxl'
- style="color:{{info.phonecolor||'#fff'}}"
- bindtap="tapPhone"
- wx:if='{{info.phone==1}}'
->
+<view class='phone text-xxl' style="color:{{info.phonecolor||'#fff'}}" bindtap="tapPhone" wx:if='{{info.phone==1}}'>
 	<text class="cuIcon-service">{{}}</text>
 </view>
 <view class='copyright text-grey'>
 	{{info.copyright||'版权信息'}}
 </view>
-

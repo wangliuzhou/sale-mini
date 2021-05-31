@@ -1,0 +1,33 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">提现</view>
+</cu-custom>
+
+<view class="type-text solid-bottom">请选择提现方式</view>
+<view class='choose-box solid-bottom'>
+	<view>
+		<image class="wx" src="/images/weixin1.png" wx:if='{{index==3}}' bindtap='chooseType' data-type='{{0}}' />
+		<image class="wx" src="/images/weixin2.png" wx:if='{{index==0}}' bindtap='chooseType' data-type='{{0}}' />
+		<view>微信提现</view>
+	</view>
+	<view>
+		<image class="" src="/images/tixian1.png" wx:if='{{index==0}}' bindtap='chooseType' data-type='{{3}}' />
+		<image class="" src="/images/tixian2.png" wx:if='{{index==3}}' bindtap='chooseType' data-type='{{3}}' />
+		<view>银行卡提现</view>
+	</view>
+</view>
+<view class='input-box'>
+	提现余额：
+	<input class="" value="{{value}}" type="digit" placeholder="请输入" bindinput='onValueChange'>
+	</input>
+</view>
+<view class='money'>
+	<text class='text-grey'>当前可提现金额:</text>
+	<text class='text-red margin-right'>{{data.moneytext}}</text>
+	<text class='text-blue' bindtap='total'>全部提现</text>
+</view>
+<view class='text-red tips'>*提现手续费百分比：{{data.withdrawcharge}}%</view>
+<view class='text-red tips' style='padding-bottom:120rpx'>*最低提现金额：{{data.withdrawmoney}}元</view>
+<view class="padding flex flex-direction submit-btn">
+	<button class="cu-btn bg-blue lg shadow-blur" bindtap='handleSubmit'>提交信息</button>
+</view>

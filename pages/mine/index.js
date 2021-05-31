@@ -85,5 +85,10 @@ Page({
         url: path
       });
     }
+  },
+  goWithdraw() {
+    wx.navigateTo({
+      url: "/pages/withdraw/index"
+    });
   }
 });

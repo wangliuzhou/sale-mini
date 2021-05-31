@@ -1,4 +1,5 @@
 // pages/changePsw/index.js
+import { post } from "../../utils/request";
 Page({
   /**
    * 页面的初始数据
@@ -13,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {},
-  handleSubmit() {
+  async handleSubmit() {
     const { p1, p2, p3 } = this.data;
     if (!p1 || !p2 || !p3) {
       wx.showToast({
@@ -33,6 +34,23 @@ Page({
       });
       return;
     }
+    console.log(p1, p2);
+    // return;
+
+    await post({
+      r: "member.changepwd",
+      pwd: p1,
+      newpwd: p2
+    });
+    wx.showToast({
+      title: "密码修改成功",
+      icon: "none"
+    });
+    setTimeout(() => {
+      wx.navigateBack({
+        delta: 1
+      });
+    }, 1500);
   },
   handleInput(e) {
     const { type } = e.currentTarget.dataset;

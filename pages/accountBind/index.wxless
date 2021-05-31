@@ -11,7 +11,6 @@
   padding: 24rpx;
   box-sizing: border-box;
   background: #fff;
-  margin-bottom: 12rpx;
   .img {
     width: 120rpx;
     height: 120rpx;

@@ -1,4 +1,4 @@
-import wlz from "../helper/wlz";
+import wlz from "../helper/index";
 
 const request = ({ method, data, header }) => {
   return wlz

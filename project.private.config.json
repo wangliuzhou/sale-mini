@@ -113,6 +113,11 @@
           "pathName": "pages/changePsw/index",
           "query": "id=2",
           "scene": null
+        },
+        {
+          "name": "pages/withdraw/index",
+          "pathName": "pages/withdraw/index",
+          "scene": null
         }
       ]
     }
