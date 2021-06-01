@@ -23,7 +23,7 @@
 </view>
 <view class='money'>
 	<text class='text-grey'>当前可提现金额:</text>
-	<text class='text-red margin-right'>{{data.moneytext}}</text>
+	<text class='text-red margin-right'>{{data.credit}}</text>
 	<text class='text-blue' bindtap='total'>全部提现</text>
 </view>
 <view class='text-red tips'>*提现手续费百分比：{{data.withdrawcharge}}%</view>

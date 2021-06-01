@@ -21,7 +21,8 @@
     "pages/moneyDetail/index",
     "pages/accountBind/index",
     "pages/changePsw/index",
-    "pages/withdraw/index"
+    "pages/withdraw/index",
+    "pages/order/afterSale/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,37 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">申请退款</view>
+</cu-custom>
+
+<view class="top solid-bottom bg-white padding">
+	申请订单：{{info.order.ordersn}}
+	<view class="text-red">*异常订单申请退款自动退款，正常订单需要审核退款</view>
+</view>
+<view class="middle solid-bottom bg-white padding">
+	<view>
+		选择售后
+	</view>
+	<radio-group bindchange="radioChange">
+		<view>
+			<label class="radio">
+				<radio value="0" checked='{{type==0}}' color='orange' style="transform:scale(0.7)" />申请退款
+			</label>
+		</view>
+		<view>
+			<label class="radio">
+				<radio value="1" checked='{{type==1}}' color='orange' style="transform:scale(0.7)" />已处理，无需退款
+			</label>
+		</view>
+	</radio-group>
+</view>
+<view class="bottom solid-bottom bg-white padding">
+	<view>
+		备注
+	</view>
+	<input class="" value="{{reason}}" placeholder="请填写内容" bindinput="reasonChnage">
+	</input>
+</view>
+
+<view class="padding flex flex-direction submit-btn">
+	<button class="cu-btn bg-blue lg shadow-blur" bindtap='handleSubmit'>提交</button>
+</view>

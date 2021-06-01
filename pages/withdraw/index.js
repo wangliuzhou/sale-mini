@@ -35,7 +35,7 @@ Page({
     this.setData({ value: e.detail.value.trim() });
   },
   total() {
-    this.setData({ value: this.data.data.moneytext });
+    this.setData({ value: this.data.data.credit });
   },
   async handleSubmit() {
     wx.showLoading({

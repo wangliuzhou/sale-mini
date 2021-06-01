@@ -117,6 +117,13 @@
         {
           "name": "pages/withdraw/index",
           "pathName": "pages/withdraw/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/afterSale/index",
+          "pathName": "pages/order/afterSale/index",
+          "query": "id=3",
           "scene": null
         }
       ]

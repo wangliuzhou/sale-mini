@@ -21,13 +21,7 @@
 <view class="cu-bar search bg-white" style='width:100%'>
 	<view class="search-form round">
 		<text class="cuIcon-search">{{}}</text>
-		<input
-		 type="text"
-		 placeholder="输入订单号"
-		 confirm-type="search"
-		 bindinput='handleInput'
-		 value='{{keyword}}'
-		/>
+		<input type="text" placeholder="输入订单号" confirm-type="search" bindinput='handleInput' value='{{keyword}}' />
 	</view>
 	<view class="action">
 		<button class="cu-btn bg-green shadow-blur round" bindtap='search'>搜索</button>
@@ -35,45 +29,44 @@
 </view>
 
 <view class='list-box' style=''>
-	<block wx:for="{{list}}" wx:key='index'>
+	<block wx:for="{{list}}" wx:key='id'>
 		<view class="item" bindtap='clickItem' data-id='{{item.id}}'>
 			<view class='top solid-bottom'>
-				<text>{{}}美罗华-洗发水</text>
-				<text class='text-blue'>{{}}已支付</text>
+				<text>订单信息</text>
+				<text class='text-blue'>{{item.statusstr}}</text>
 			</view>
 			<view class='middle solid-bottom'>
 				<view class='middle-left'>
-					<image class="" src="" />
+					<image class="" src="{{item.goods[0].thumb}}" />
 					<view class='goods-info'>
 						<view class='name'>
-							{{}}冰霜西瓜
+							{{item.goods[0].title}}
 						</view>
 						<view class='text-grey'>
-							{{}}商家售价：
-							<text class='text-red'>￥58</text>
+							商家售价：
+							<text class='text-red'>￥{{item.goods[0].price}}</text>
 						</view>
 						<view class='text-grey'>
-							{{}}商家成本价：
-							<text class='text-red'>￥58</text>
+							商家成本价：
+							<text class='text-red'>￥{{item.goods[0].sell_goodscost}}</text>
 						</view>
 					</view>
 				</view>
-				<view class='middle-rigth'>{{}}2号柜</view>
+				<view class='middle-rigth'>{{item.sell_cellNo}}号柜</view>
 			</view>
 			<view class='bottom'>
 				<view class="left text-grey">
-					<view>付款时间：{{}}2021-02-30 10:01:12</view>
-					<view>订单号：{{}}2021-02-30 10:01:12</view>
-					<view>设备号：{{}}2021-02-30 10:01:12</view>
+					<view>付款时间：{{item.paytime}}</view>
+					<view>订单号：{{item.ordersn}}</view>
+					<view>设备号：{{item.sell_deviceNo}}</view>
 				</view>
 				<view class="right">
-					<view class="margin-bottom-xs text-blue" catchtap='handleClickBtn' data-index='{{index}}'>申请售后</view>
-					<view class="">实付金额：
-						<text class='text-red'>￥58</text>
+					<view class="margin-bottom-xs text-blue" catchtap='handleClickBtn' data-refundstate='{{item.refundstate}}' data-id='{{item.id}}'>{{item.refundstate==0?'申请售后':item.refundstate==1?'取消售后':''}}</view>
+					<view class="">实付:
+						<text class='text-red'>￥{{item.price}}</text>
 					</view>
 				</view>
 			</view>
 		</view>
 	</block>
 </view>
-
