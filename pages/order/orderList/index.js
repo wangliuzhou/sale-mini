@@ -24,7 +24,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.getPointList();
     this.getOrderList();
   },
@@ -80,7 +80,7 @@ Page({
       starttime: starttime ? formatDate(new Date(starttime)) : "",
       endtime: endtime ? formatDate(new Date(endtime)) : ""
     });
-    list = list.concat(this.data.list);
+    list = this.data.list.concat(list);
 
     this.setData({ list, total });
     wx.hideLoading();
@@ -108,7 +108,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     console.log("onReachBottom");
     const { page, total, psize } = this.data;
     if (page < total / psize) {
