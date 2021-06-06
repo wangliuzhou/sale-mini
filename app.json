@@ -31,7 +31,9 @@
     "pages/operation/saledTest/index",
     "pages/operation/replenishment/index",
     "pages/operation/notScanWarn/index",
-    "pages/operation/deviceBreakdown/index"
+    "pages/operation/deviceBreakdown/index",
+    "pages/data/moreData/index",
+    "pages/data/pointData/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

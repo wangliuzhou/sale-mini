@@ -4,24 +4,24 @@
 <view class='data'>
 		<view class="top">
 				当前数据
-				<view class="text-grey text-xs">
+				<view class="text-grey text-xs" bindtap='goPage'>
 						更多数据
 						<text class="cuIcon-right">{{}}</text>
 				</view>
 		</view>
 		<view class="bottom">
 				<view class="public">
-						<image class="" src="../../images/1.png" />
+						<image class="" src="/images/data_total_money.png" />
 						<view class='text'>总计销售额（元）</view>
 						<view class='number'>{{SalePrice}}</view>
 				</view>
 				<view class="public">
-						<image class="" src="../../images/1.png" />
+						<image class="" src="/images/data_shopping_cart.png" />
 						<view class='text'>总计成交量（单）</view>
 						<view class='number'>{{SaleNum}}</view>
 				</view>
 				<view class="public">
-						<image class="" src="../../images/1.png" />
+						<image class="" src="/images/data_money.png" />
 						<view class='text'>本月销售额（元）</view>
 						<view class='number'>{{MonthSalePrice}}</view>
 				</view>
@@ -30,7 +30,7 @@
 <view>
 		<view class='calendar-box'>
 				<view class="margin-right">日销售额</view>
-				<calendar style='margin-left:12rpx' id='calendar2' bindonShowPicker='onShowPicker' bindOnRangeComplete='onRangeComplete' />
+				<calendar style='margin-left:12rpx' id='calendar2' bindcancelChooseDate='cancelChooseDate' bindonShowPicker='onShowPicker' bindOnRangeComplete='onRangeComplete' />
 		</view>
 </view>
 <view class="container" wx:if='{{showCanvas}}'>

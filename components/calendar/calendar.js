@@ -25,7 +25,7 @@ Component({
   data: {
     formatDateText: ""
   },
-  attached: function() {
+  attached: function () {
     this.setData({
       maxDate: formatDate(new Date())
     });
@@ -37,10 +37,10 @@ Component({
     this.calendar2 = this.selectComponent("#calendar");
   },
   methods: {
-    onDayClick: function(event) {
+    onDayClick: function (event) {
       console.log(event);
     },
-    onRangeComplete: function(event) {
+    onRangeComplete: function (event) {
       const { begin, end } = event.detail;
       const a = formatDate(begin);
       const b = formatDate(end);
@@ -49,10 +49,13 @@ Component({
       const end2 = formatTime(end);
       this.triggerEvent("OnRangeComplete", { begin: begin2, end: end2 });
     },
-    onMonthChange: function(event) {},
+    onMonthChange: function (event) { },
     showPicker() {
       this.calendar2.showPicker();
       this.triggerEvent("onShowPicker", this.calendar2.data.showCalendar);
+    },
+    cancelChooseDate() {
+      this.triggerEvent("cancelChooseDate");
     },
     setFormatDateText() {
       if (this && this.data) {

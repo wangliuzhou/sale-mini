@@ -1,28 +1,8 @@
 <view class="time-picker" bindtap='showPicker'>
-	<image src='/images/calendar.svg' style='width:40rpx;height:40rpx' wx:if="{{showIcon}}" />
-	<text wx:if='{{formatDateText}}'>{{formatDateText}}</text>
-	<text wx:else class='text-grey'>请选择日期</text>
+		<image src='/images/calendar.svg' style='width:40rpx;height:40rpx' wx:if="{{showIcon}}" />
+		<text wx:if='{{formatDateText}}'>{{formatDateText}}</text>
+		<text wx:else class='text-grey'>请选择日期</text>
 </view>
-<calendar2
- id="calendar"
- class='content'
- mode='pickerRange'
- dot-days="{{dotDays}}"
- days-desc="{{daysDesc}}"
- dot-color="#0000ff"
- show-more-days="{{false}}"
- show-more-months="{{true}}"
- selected-mode='round'
- selected-date='{{selectedDate}}'
- min-date='{{minDate}}'
- max-date='{{maxDate}}'
- bindOnMonthChange="onMonthChange"
- bindOnDayClick='onDayClick'
- bindOnRangeComplete='onRangeComplete'
- language='{{language}}'
- days-style='{{daysStyle}}'
-/>
-
+<calendar2 id="calendar" class='content' mode='pickerRange' dot-days="{{dotDays}}" days-desc="{{daysDesc}}" dot-color="#0000ff" show-more-days="{{false}}" show-more-months="{{true}}" selected-mode='round' selected-date='{{selectedDate}}' min-date='{{minDate}}' max-date='{{maxDate}}' bindOnMonthChange="onMonthChange" bindOnDayClick='onDayClick' bindOnRangeComplete='onRangeComplete' bindcancelChooseDate='cancelChooseDate' language='{{language}}' days-style='{{daysStyle}}' />
 <!-- begin-date='{{beginDate}}'
- end-date='{{endDate}}'-->
-
+ end-date='{{endDate}}' -->

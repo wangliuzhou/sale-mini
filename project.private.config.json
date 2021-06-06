@@ -141,6 +141,12 @@
         {
           "name": "pages/operation/electricityWarn/index",
           "pathName": "pages/operation/electricityWarn/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/data/moreData/index",
+          "pathName": "pages/data/moreData/index",
           "scene": null
         }
       ]

@@ -130,41 +130,41 @@ Component({
     showCalendar: false
   },
   observers: {
-    dotDays: function() {
+    dotDays: function () {
       if (this.data.initFinished) {
         this.refreshCalendar();
       }
     },
-    daysDesc: function() {
+    daysDesc: function () {
       if (this.data.initFinished) {
         this.refreshCalendar();
       }
     },
-    daysStyle: function() {
+    daysStyle: function () {
       if (this.data.initFinished) {
         this.refreshCalendar();
       }
     },
-    selectedDate: function() {
+    selectedDate: function () {
       if (this.data.initFinished) {
         this.refreshCalendar();
       }
     },
-    beginDate: function() {
+    beginDate: function () {
       if (this.data.initFinished) {
         this.refreshRangeDate();
         this.refreshCalendar();
       }
     },
-    endDate: function() {
+    endDate: function () {
       if (this.data.initFinished) {
         this.refreshRangeDate();
         this.refreshCalendar();
       }
     }
   },
-  created: function() {},
-  attached: function() {
+  created: function () { },
+  attached: function () {
     let selectedClassName;
     if (SELECTEDMODE.square == this.data.selectedMode) {
       selectedClassName = "day-selected-square";
@@ -210,7 +210,7 @@ Component({
     this.refreshCalendar();
   },
   methods: {
-    refreshRangeDate: function() {
+    refreshRangeDate: function () {
       // 范围选择模式，不存在被选中的单一日期,
       if (this.data.beginDate != "" && this.data.endDate != "") {
         let beginDateObj = new Date(this.data.beginDate.replace(/-/g, "/"));
@@ -227,7 +227,7 @@ Component({
         selectedDate: ""
       });
     },
-    refreshCalendar: function() {
+    refreshCalendar: function () {
       const now = new Date();
       let currenDate = this.data.currenDate;
       let year = currenDate.getFullYear();
@@ -324,7 +324,7 @@ Component({
           element.dotColor = this.data.dotColor;
         }
         // 添加日期描述
-        let dayDesc = this.data.daysDesc.find(function(value, index, arr) {
+        let dayDesc = this.data.daysDesc.find(function (value, index, arr) {
           return value.id == element.id;
         });
         if (dayDesc) {
@@ -383,7 +383,7 @@ Component({
         days
       });
     },
-    getStyleById: function(id) {
+    getStyleById: function (id) {
       let styleArr = this.data.daysStyle;
       for (let i = 0; i < styleArr.length; i++) {
         if (styleArr[i].id == id) {
@@ -392,12 +392,12 @@ Component({
       }
       return "";
     }, // c4
-    getFirstDay: function(date) {
+    getFirstDay: function (date) {
       let year = date.getFullYear();
       let month = date.getMonth();
       return new Date(year + "/" + (month + 1) + "/1");
     },
-    getPreMonthFirstDay: function(date) {
+    getPreMonthFirstDay: function (date) {
       let year = date.getFullYear();
       let month = date.getMonth();
       if (month == 0) {
@@ -406,7 +406,7 @@ Component({
         return new Date(year + "/" + month + "/01");
       }
     },
-    getNextMonthFirstDay: function(date) {
+    getNextMonthFirstDay: function (date) {
       let year = date.getFullYear();
       let month = date.getMonth();
       if (month == 11) {
@@ -415,7 +415,7 @@ Component({
         return new Date(year + "/" + (month + 2) + "/01");
       }
     },
-    getMonthDayCount: function(date) {
+    getMonthDayCount: function (date) {
       let year = date.getFullYear();
       let month = date.getMonth();
       // 日期所在月份的第一天
@@ -431,7 +431,7 @@ Component({
         (d_next_month_first_day.getTime() - d_first_day.getTime()) / 86400000
       );
     },
-    pre: function() {
+    pre: function () {
       let currenDate = this.getPreMonthFirstDay(this.data.currenDate);
       this.setData({
         currenDate
@@ -439,7 +439,7 @@ Component({
       this.refreshCalendar();
       this.triggerEvent("OnMonthChange", currenDate);
     }, // c5
-    next: function() {
+    next: function () {
       let currenDate = this.getNextMonthFirstDay(this.data.currenDate);
       this.setData({
         currenDate
@@ -447,12 +447,12 @@ Component({
       this.refreshCalendar();
       this.triggerEvent("OnMonthChange", currenDate);
     },
-    showPicker: function() {
+    showPicker: function () {
       this.setData({
         showCalendar: !this.data.showCalendar
       });
     },
-    onDayClick: function(event) {
+    onDayClick: function (event) {
       let index = event.currentTarget.dataset.index;
       let day = this.data.days[index];
       if (!day.clickable) {
@@ -528,7 +528,7 @@ Component({
       }
       this.refreshCalendar();
     },
-    confirmChooseDate: function() {
+    confirmChooseDate: function () {
       let result = {
         begin: this.data.beginDateObj,
         end: this.data.endDateObj
@@ -548,15 +548,16 @@ Component({
       });
       this.refreshCalendar();
     },
-    cancelChooseDate: function() {
+    cancelChooseDate: function () {
       this.setData({
         beginDateObj: null,
         endDateObj: null,
         showCalendar: false
       });
       this.refreshCalendar();
+      this.triggerEvent('cancelChooseDate')
     },
-    formatDate: function(time) {
+    formatDate: function (time) {
       var d = new Date(time);
       var year = d.getFullYear();
       var month = d.getMonth() + 1;

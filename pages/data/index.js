@@ -80,10 +80,12 @@ Page({
     })
   },
   onReady: function () {
-
     this.getInitInfo()
   },
-  onShow() {
+  goPage() {
+    wx.navigateTo({
+      url: '/pages/data/moreData/index',
+    })
   },
   async getInitInfo() {
     const { starttime, endtime } = this.data
@@ -99,6 +101,7 @@ Page({
       chart.changeData(data.chartlist);
     }
   },
+  // 选择日期时点击缺点
   onRangeComplete(e) {
     const { begin, end } = e.detail;
     console.log("onRangeComplete", begin, end);
@@ -109,10 +112,20 @@ Page({
     });
     this.getInitInfo();
   },
+  // 日历弹起
   onShowPicker(e) {
     const showPicker = e.detail;
     if (showPicker) {
       this.setData({ showCanvas: false });
     }
+  },
+  // 选择日期时点击取消
+  cancelChooseDate() {
+    console.log(222, this.data.chartlist);
+    this.setData({ showCanvas: true }, () => {
+      setTimeout(() => {
+        chart.changeData(this.data.chartlist);
+      }, 111)
+    });
   }
 });

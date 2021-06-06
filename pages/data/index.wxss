@@ -34,9 +34,9 @@
   flex: 1;
 }
 .data .bottom .public image {
-  width: 100rpx;
-  height: 100rpx;
-  background: #eee;
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 12rpx;
 }
 .data .bottom .public .text {
   margin: 12rpx 0;

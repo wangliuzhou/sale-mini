@@ -3,6 +3,7 @@
   margin-bottom: 24rpx;
   border-radius: 8rpx;
   overflow: hidden;
+
   .top {
     box-sizing: border-box;
     padding: 24rpx;
@@ -10,11 +11,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     view {
       display: flex;
       align-items: center;
     }
   }
+
   .bottom {
     box-sizing: border-box;
     padding: 24rpx;
@@ -23,6 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+
     .public {
       display: flex;
       align-items: center;
@@ -30,20 +34,24 @@
       flex-direction: column;
       font-size: 24rpx;
       flex: 1;
+
       image {
-        width: 100rpx;
-        height: 100rpx;
-        background: #eee;
+        width: 80rpx;
+        height: 80rpx;
+        margin-bottom: 12rpx;
       }
+
       .text {
         margin: 12rpx 0;
       }
+
       .number {
         font-size: 30rpx;
       }
     }
   }
 }
+
 .calendar-box {
   display: flex;
   align-items: center;
@@ -52,12 +60,14 @@
   overflow: hidden;
   padding: 24rpx;
 }
+
 .container {
   overflow: hidden;
   height: 400rpx;
   background: #fff;
   margin: 0 24rpx 24rpx 24rpx;
 }
+
 #column-dom {
   width: 100%;
   height: 500rpx;

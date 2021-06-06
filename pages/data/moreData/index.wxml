@@ -1,0 +1,32 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">更多数据</view>
+</cu-custom>
+<view class="list">
+  <block wx:for="{{list}}" wx:key='id'>
+    <view class="item">
+      <image src='/images/index/point.png' />
+      <view class="middle">
+        <view class="title">{{item.username}}</view>
+        <view class="public">
+          设备数：
+          <text class="text-grey">{{item.device_num}}台</text>
+        </view>
+        <view class="public">
+          扫码率：
+          <text class="text-grey">{{item.report_scan}}%</text>
+        </view>
+      </view>
+      <view class="right">
+        <view class="public">
+          均销售额：
+          <text class="text-grey">￥{{item.report_aveprice}}</text>
+        </view>
+        <view class="public">
+          转化率：
+          <text class="text-grey">{{item.report_rate}}%</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
