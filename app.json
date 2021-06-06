@@ -22,7 +22,16 @@
     "pages/accountBind/index",
     "pages/changePsw/index",
     "pages/withdraw/index",
-    "pages/order/afterSale/index"
+    "pages/order/afterSale/index",
+    "pages/operation/operationList/index",
+    "pages/operation/unbind/index",
+    "pages/operation/electricityWarn/index",
+    "pages/operation/deviceSettings/index",
+    "pages/operation/deviceTest/index",
+    "pages/operation/saledTest/index",
+    "pages/operation/replenishment/index",
+    "pages/operation/notScanWarn/index",
+    "pages/operation/deviceBreakdown/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

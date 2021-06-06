@@ -1,26 +1,15 @@
-import { formatMD } from "../../utils/util";
+import { formatMD, formatDate } from "../../utils/util";
+import { post } from '../../utils/request'
 let chart = null;
 var data = [
-  {
-    date: "2020-07-01",
-    value: 83
-  },
-  {
-    date: "2020-07-02",
-    value: 12
-  },
-  {
-    date: "2020-07-03",
-    value: 107
-  },
-  {
-    date: "2020-07-04",
-    value: 82
-  },
-  {
-    date: "2020-07-05",
-    value: 44
-  }
+  //   {
+  //     date: "2020-07-01",
+  //     money: 83
+  //   },
+  //   {
+  //     date: "2020-07-02",
+  //     money: 12
+  //   },
 ];
 
 function initChart(canvas, width, height, F2) {
@@ -67,8 +56,8 @@ function initChart(canvas, width, height, F2) {
     }
   });
 
-  chart.area().position("date*value");
-  chart.line().position("date*value");
+  chart.area().position("date*money");
+  chart.line().position("date*money");
   chart.render();
   // 注意：需要把chart return 出来
   return chart;
@@ -79,85 +68,48 @@ Page({
     opts: {
       onInit: initChart
     },
-    showCanvas: true
+    showCanvas: true,
+    starttime: '',
+    endtime: ''
   },
-  onReady: function() {
-    setTimeout(() => {
-      const newData = [
-        {
-          date: "2020-07-01",
-          value: 83
-        },
-        {
-          date: "2020-07-02",
-          value: 12
-        },
-        {
-          date: "2020-07-03",
-          value: 107
-        },
-        {
-          date: "2020-07-04",
-          value: 82
-        },
-        {
-          date: "2020-07-05",
-          value: 44
-        },
-        {
-          date: "2020-07-06",
-          value: 72
-        },
-        {
-          date: "2020-07-07",
-          value: 106
-        },
-        {
-          date: "2020-07-08",
-          value: 107
-        },
-        {
-          date: "2020-07-09",
-          value: 66
-        },
-        {
-          date: "2020-07-10",
-          value: 91
-        }
-      ];
-      chart.changeData(newData);
-    }, 555);
+  onLoad() {
+    // 初始化取最近10天内的数据
+    this.setData({
+      starttime: +new Date() - 9 * 24 * 60 * 60 * 1000,
+      endtime: +new Date()
+    })
   },
-  onRangeComplete() {
-    this.setData({ showCanvas: true });
-    setTimeout(() => {
-      const newData = [
-        {
-          date: "07-01",
-          value: 83
-        },
-        {
-          date: "07-02",
-          value: 12
-        },
-        {
-          date: "07-04",
-          value: 82
-        },
-        {
-          date: "07-09",
-          value: 66
-        },
-        {
-          date: "07-10",
-          value: 91
-        }
-      ];
-      chart.changeData(newData);
-    }, 333);
+  onReady: function () {
+
+    this.getInitInfo()
+  },
+  onShow() {
+  },
+  async getInitInfo() {
+    const { starttime, endtime } = this.data
+    const { data = {} } = await post({
+      r: 'manage.statistics',
+      starttime: starttime ? formatDate(new Date(starttime)) : "",
+      endtime: endtime ? formatDate(new Date(endtime)) : ""
+    })
+    console.log('init data', data);
+
+    this.setData(data)
+    if (data.chartlist) {
+      chart.changeData(data.chartlist);
+    }
+  },
+  onRangeComplete(e) {
+    const { begin, end } = e.detail;
+    console.log("onRangeComplete", begin, end);
+    this.setData({
+      starttime: begin,
+      endtime: end,
+      showCanvas: true
+    });
+    this.getInitInfo();
   },
   onShowPicker(e) {
-    console.log(111, e);
     const showPicker = e.detail;
     if (showPicker) {
       this.setData({ showCanvas: false });

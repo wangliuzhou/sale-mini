@@ -1,0 +1,62 @@
+.calendar-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  height: 80rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.list {
+  margin-top: 24rpx;
+  background: #fff;
+
+  .item {
+    display: flex;
+    align-items: center;
+    padding: 24rpx;
+    box-sizing: border-box;
+
+    .device-info {
+      width: 50%;
+      display: flex;
+      align-items: center;
+
+      .icon {
+        width: 50rpx;
+        height: 50rpx;
+        margin-right: 8rpx;
+        flex-shrink: 0;
+      }
+    }
+
+    .device-ele {
+      width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .ele-image {
+        width: 128rpx;
+        height: 128rpx;
+      }
+
+      .ele {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+      }
+
+    }
+
+    .device-day {
+      width: 25%;
+      text-align: center;
+    }
+
+
+  }
+}

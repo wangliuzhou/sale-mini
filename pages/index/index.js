@@ -41,7 +41,8 @@ Page({
       {
         title: "运维管理",
         desc: "设备维护/补货",
-        image: "../../images/index/run.png"
+        image: "../../images/index/run.png",
+        path: "/pages/operation/operationList/index"
       }
     ]
   },
@@ -64,7 +65,7 @@ Page({
       url: path
     });
   },
-  onLoad: async function() {},
+  onLoad: async function () { },
   onShow() {
     this.chooseActive({
       currentTarget: {

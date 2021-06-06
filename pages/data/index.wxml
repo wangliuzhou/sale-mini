@@ -1,46 +1,38 @@
 <cu-custom bgColor="bg-gradual-blue">
-	<view slot="content">统计</view>
+		<view slot="content">统计</view>
 </cu-custom>
 <view class='data'>
-	<view class="top">
-		当前数据
-		<view class="text-grey text-xs">
-			更多数据
-			<text class="cuIcon-right" >{{}}</text>
+		<view class="top">
+				当前数据
+				<view class="text-grey text-xs">
+						更多数据
+						<text class="cuIcon-right">{{}}</text>
+				</view>
 		</view>
-	</view>
-	<view class="bottom">
-		<view class="public">
-			<image class="" src="../../images/1.png" />
-			<view class='text'>总计销售额（元）</view>
-			<view class='number'>4195.0</view>
+		<view class="bottom">
+				<view class="public">
+						<image class="" src="../../images/1.png" />
+						<view class='text'>总计销售额（元）</view>
+						<view class='number'>{{SalePrice}}</view>
+				</view>
+				<view class="public">
+						<image class="" src="../../images/1.png" />
+						<view class='text'>总计成交量（单）</view>
+						<view class='number'>{{SaleNum}}</view>
+				</view>
+				<view class="public">
+						<image class="" src="../../images/1.png" />
+						<view class='text'>本月销售额（元）</view>
+						<view class='number'>{{MonthSalePrice}}</view>
+				</view>
 		</view>
-		<view class="public">
-			<image class="" src="../../images/1.png" />
-			<view class='text'>总计成交量（单）</view>
-			<view class='number'>73</view>
-		</view>
-		<view class="public">
-			<image class="" src="../../images/1.png" />
-			<view class='text'>本月销售额（元）</view>
-			<view class='number'>58.0</view>
-		</view>
-	</view>
 </view>
 <view>
-	<view class='calendar-box'>
-		日销售额▼
-		<calendar
-		 style='margin-left:12rpx'
-		 id='calendar2'
-		 bindonShowPicker='onShowPicker'
-		 bindOnRangeComplete='onRangeComplete'
-		/>
-	</view>
+		<view class='calendar-box'>
+				<view class="margin-right">日销售额</view>
+				<calendar style='margin-left:12rpx' id='calendar2' bindonShowPicker='onShowPicker' bindOnRangeComplete='onRangeComplete' />
+		</view>
 </view>
-<!--
--->
-<view class="container" hidden='{{!showCanvas}}'>
-	<ff-canvas id="column-dom" canvas-id="column" opts="{{ opts }}">{{}}</ff-canvas>
+<view class="container" wx:if='{{showCanvas}}'>
+		<ff-canvas id="column-dom" canvas-id="column" opts="{{ opts }}"></ff-canvas>
 </view>
-

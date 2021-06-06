@@ -1,0 +1,51 @@
+.calendar-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  height: 80rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.list {
+  margin-top: 24rpx;
+  background: #fff;
+}
+.list .item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.list .item .device-info {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.list .item .device-info .icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 8rpx;
+  flex-shrink: 0;
+}
+.list .item .device-ele {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.list .item .device-ele .ele-image {
+  width: 128rpx;
+  height: 128rpx;
+}
+.list .item .device-ele .ele {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+.list .item .device-day {
+  width: 25%;
+  text-align: center;
+}

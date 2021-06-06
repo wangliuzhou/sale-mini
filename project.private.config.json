@@ -125,6 +125,23 @@
           "pathName": "pages/order/afterSale/index",
           "query": "id=3",
           "scene": null
+        },
+        {
+          "name": "pages/operation/operationList/index",
+          "pathName": "pages/operation/operationList/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/operation/unbind/index",
+          "pathName": "pages/operation/unbind/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/operation/electricityWarn/index",
+          "pathName": "pages/operation/electricityWarn/index",
+          "scene": null
         }
       ]
     }

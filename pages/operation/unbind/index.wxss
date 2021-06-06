@@ -1,0 +1,14 @@
+.contenta {
+  display: flex;
+  padding: 48rpx 24rpx;
+  box-sizing: border-box;
+  background: #fff;
+  height: 100vh;
+}
+
+.submit-btn {
+  position: absolute;
+  bottom: 100rpx;
+  left: 50%;
+  transform: translate(-50%);
+}

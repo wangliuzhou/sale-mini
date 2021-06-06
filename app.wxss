@@ -7,3 +7,20 @@
 .flex-center {
   align-items: center;
 }
+
+.no-data-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.no-data-box image {
+  width: 150rpx;
+  height: 100rpx;
+  margin-bottom: 24rpx;
+}

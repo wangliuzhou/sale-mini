@@ -1,0 +1,14 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">设备解绑</view>
+</cu-custom>
+<view class="contenta">
+  设备号
+  <view class="scan-box text-grey margin-left-lg" bindtap='scan'>
+    扫一扫显示设备号
+    <text class='cuIcon-scan margin-left-xs'></text>
+  </view>
+  <view class="submit-btn">
+    <button class="cu-btn bg-blue lg shadow-blur" bindtap='handleSubmit'>确认解绑</button>
+  </view>
+</view>

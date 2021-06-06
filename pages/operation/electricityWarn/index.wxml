@@ -1,0 +1,43 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">电量预警</view>
+</cu-custom>
+<view class='calendar-box'>
+  筛选点位：
+  <text class='cuIcon-location text-grey'>{{}}</text>
+  <picker bindchange="pickerChange" value="{{index}}" range="{{pointListFormat}}">
+    <view class="picker">
+      <text wx:if='{{index}}'>{{pointListFormat[index]}}</text>
+      <text wx:else class='text-grey'>请筛选点位</text>
+    </view>
+  </picker>
+</view>
+<view class="list">
+  <view class="item">
+    <view class="device-info">设备号</view>
+    <view class="device-ele">设备电量</view>
+    <view class="device-day">可用天数</view>
+  </view>
+  <view wx:if="{{list.length}}">
+    <block wx:for="{{list}}" wx:key='id'>
+      <view class="item">
+        <view class="device-info">
+          <image src='/images/operation/bh.png' class="icon" />
+          <view class="text-grey">
+            <view class="device-no">{{item.deviceNo}}</view>
+            <view class="device-address">{{item.remarks}}</view>
+          </view>
+        </view>
+        <view class="device-ele">
+          <image src='../../../images/operation/ele.png' class="ele-image" />
+          <view class="ele">{{item.electric}}%</view>
+        </view>
+        <view class="device-day">{{item.day}}</view>
+      </view>
+    </block>
+  </view>
+  <view class='text-grey no-data-box' wx:else>
+    <image class="" src="/images/no_data.png" />
+    暂无数据
+  </view>
+</view>

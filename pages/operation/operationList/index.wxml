@@ -1,0 +1,12 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">运维管理</view>
+</cu-custom>
+<view class="list">
+  <block wx:for='{{list}}' wx:key='title'>
+    <view class="item" bindtap='goPage' data-path='{{item.path}}'>
+      <image src='../../../images/operation/{{item.icon}}.png' />
+      <view class="title">{{item.title}}</view>
+    </view>
+  </block>
+</view>

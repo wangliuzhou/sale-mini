@@ -1,22 +1,26 @@
 // pages/moneyDetail/idnex.js
+import { post } from '../../utils/request';
+import { formatDate } from "../../utils/util";
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    psize: 10,
+    money: '',
     index: 0,
-    list: [{}, {}, {}],
-    begin: "",
-    end: "",
-    total: ""
+    list: [],
+    page: 1,
+    total: 0,
+    psize: 10,
+    starttime: "",
+    endtime: ""
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.getList();
   },
 
-  onReachBottom: function() {
+  onReachBottom: function () {
     console.log("onReachBottom");
     const { page, total, psize } = this.data;
     if (page < total / psize) {
@@ -25,13 +29,40 @@ Page({
     }
   },
   changeIndex(e) {
-    this.setData({ index: e.currentTarget.dataset.index, list: [], page: 1 });
+    this.setData({ index: e.currentTarget.dataset.index });
+    this.search();
+  },
+  async getList() {
+    wx.showLoading({ title: "加载中..." });
+    const { index, page, starttime, endtime, } = this.data;
+    let { data = {}, } = await post({
+      r: "member.log.get_list",
+      page,
+      type: index,
+      starttime: starttime ? formatDate(new Date(starttime)) : "",
+      endtime: endtime ? formatDate(new Date(endtime)) : ""
+    });
+    let { total, list, money } = data
+    list = this.data.list.concat(list);
+    this.setData({ list, total, money });
+    console.log(this.data.list);
+
+    wx.hideLoading();
+  },
+  search() {
+    this.setData({
+      list: [],
+      page: 1
+    });
     this.getList();
   },
-  async getList() {},
   onRangeComplete(e) {
     const { begin, end } = e.detail;
-    this.setData({ begin, end, list: [], page: 1 });
-    this.getList();
-  }
+    console.log("onRangeComplete", begin, end);
+    this.setData({
+      starttime: begin,
+      endtime: end
+    });
+    this.search();
+  },
 });
