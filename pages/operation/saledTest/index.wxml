@@ -1,2 +1,7 @@
-<!--pages/operation/saledTest/index.wxml-->
-<text>pages/operation/saledTest/index.wxml</text>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">消费出货测试</view>
+</cu-custom>
+
+<button bindtap='searchBLE'>搜搜</button>
+<button bindtap='scan'>scan</button>

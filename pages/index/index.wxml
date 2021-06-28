@@ -52,6 +52,11 @@
 		{{info.device_lack}}
 	</view>
 </view>
+<view class="task-ele-box  text-red" wx:if="{{warnTotalNum>0}}">
+	<view class="title-text">任务</view>
+	<view class="text">您有{{warnTotalNum}}台设备低电量，客户无法正常购买</view>
+	<view class="check" bindtap='goLowerEle'>点击查看</view>
+</view>
 <view class='container'>
 	<view class='list-box'>
 		<block wx:for="{{list}}" wx:key='path'>
@@ -72,3 +77,20 @@
 	</view>
 </view>
 
+
+<view class="cu-modal {{showModal?'show':''}}">
+  <view class="cu-dialog" >
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">低电量预警</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      您有{{warnTotalNum}}台设备处于低电量，可能导致客户无法购买，请更换电池
+    </view>
+		<view class="padding flex flex-direction submit-btn">
+			<button  class="cu-btn bg-blue xs shadow-blur" bindtap='goLowerEle'>前往查看</button>
+		</view>
+	</view>
+</view>

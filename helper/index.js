@@ -74,6 +74,19 @@ let apiSpace = {
     "openSetting"
     // qq地图
   ],
+  blue:[
+    "openBluetoothAdapter",
+    "startBluetoothDevicesDiscovery",
+    "stopBluetoothDevicesDiscovery",
+    "createBLEConnection",
+    "closeBluetoothAdapter",
+    "getBLEDeviceServices",
+    "getBLEDeviceCharacteristics",
+    "notifyBLECharacteristicValueChange",
+    "writeBLECharacteristicValue",
+    "readBLECharacteristicValue",
+  ],
+
   //绘图
   draw: ["canvasToTempFilePath"],
   //剪贴板

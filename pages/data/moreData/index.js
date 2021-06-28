@@ -33,6 +33,13 @@ Page({
       total: info.total
     });
   },
+  goPage(e){
+    const { item = {} } = e.currentTarget.dataset;
+    const { id } = item;
+    wx.navigateTo({
+      url: `/pages/data/pointData/index?id=${id}`
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

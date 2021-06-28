@@ -4,7 +4,7 @@
 </cu-custom>
 <view class="list">
   <block wx:for="{{list}}" wx:key='id'>
-    <view class="item">
+    <view class="item" bindtap='goPage' data-item='{{item}}'>
       <image src='/images/index/point.png' />
       <view class="middle">
         <view class="title">{{item.username}}</view>

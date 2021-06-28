@@ -47,12 +47,17 @@ Page({
       id
     });
     console.log(123, info);
-    info.lists.forEach(item => {
-      const { cellNo } = item;
-      this.data.info.lists[cellNo - 1] = item;
-    });
-    info.lists = this.data.info.lists;
-    this.setData({ info });
+    for(let i in info.lists){
+      this.data.info.lists[i - 1] = info.lists[i];
+    }
+    this.data.info.name = info.name
+    
+    // info.lists.forEach(item => {
+    //   const { cellNo } = item;
+    //   this.data.info.lists[cellNo - 1] = item;
+    // });
+    // info.lists = this.data.info.lists;
+    this.setData({ info: this.data.info});
     wx.hideLoading();
   },
   // 点击提交信息，
@@ -172,6 +177,7 @@ Page({
             item.cellNo = numIdx + 1;
             this.data.info.lists[numIdx] = item;
             wx.showToast({ title: numIdx + 1 + "号柜同步成功", icon: "none" });
+            this.setData({info:this.data.info})
           }
         }
       });
@@ -179,6 +185,7 @@ Page({
       item.cellNo = numIdx + 1;
       this.data.info.lists[numIdx] = item;
       wx.showToast({ title: numIdx + 1 + "号柜同步成功", icon: "none" });
+      this.setData({info:this.data.info})
     }
     this.setData({ info: this.data.info });
     console.log(2222, this.data.info.lists);

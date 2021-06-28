@@ -6,6 +6,8 @@ const app = getApp();
 
 Page({
   data: {
+    showModal:false,
+    warnTotalNum: 0,
     active: 1,
     info: "",
     list: [
@@ -65,8 +67,11 @@ Page({
       url: path
     });
   },
-  onLoad: async function () { },
+  onLoad: async function () { 
+    
+  },
   onShow() {
+    this.getWaringList()
     this.chooseActive({
       currentTarget: {
         dataset: {
@@ -74,5 +79,31 @@ Page({
         }
       }
     });
+  },
+  // 电量预警
+  async getWaringList() {
+    let { total } = await post({
+      r: "manage.operation.get_waringlist",
+      page:1,
+      psize:100000000,
+      dealerid: '',
+    });
+    if(this.loaded){
+      // 不是第一次onshow
+      this.setData({ warnTotalNum: total });
+    }else{
+      // 第一次onshow
+      this.loaded=true
+      this.setData({ warnTotalNum: total, showModal:total>0 });
+    }
+  },
+  hideModal(){
+    this.setData({showModal:false})
+  },
+  goLowerEle(){
+    wx.navigateTo({
+      url:"/pages/operation/electricityWarn/index"
+    })
+    this.setData({showModal:false})
   }
 });

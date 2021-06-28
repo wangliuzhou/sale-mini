@@ -147,6 +147,18 @@
         {
           "name": "pages/data/moreData/index",
           "pathName": "pages/data/moreData/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/data/pointData/index",
+          "pathName": "pages/data/pointData/index",
+          "query": "id=12",
+          "scene": null
+        },
+        {
+          "name": "pages/operation/saledTest/index",
+          "pathName": "pages/operation/saledTest/index",
           "scene": null
         }
       ]

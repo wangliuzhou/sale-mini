@@ -2,3 +2,78 @@
   <view slot="backText">返回</view>
   <view slot="content">点位统计</view>
 </cu-custom>
+
+<view class='calendar-box'>
+	时间间隔：
+	<calendar id='calendar2' bindOnRangeComplete='onRangeComplete' />
+</view>
+<view class="data-box">
+  <view class="public solid-bottom">
+    <view class="item solid-right">
+      <view class="title">总成交额</view>
+      ￥{{SalePrice}}
+    </view>
+    <view class="item">
+      <view class="title">总利润</view>
+      ￥{{ProfitPrice}}
+    </view>
+  </view>
+  <view class="public solid-bottom">
+    <view class="item solid-right">
+      <view class="title">总扫码次数</view>
+      {{ScanNum}}
+    </view>
+    <view class="item">
+      <view class="title">总成交次数</view>
+      {{SaleNum}}
+    </view>
+  </view>
+  <view class="public solid-bottom">
+    <view class="item solid-right">
+      <view class="title">总补货次数</view>
+      {{RepairNum}}
+    </view>
+    <view class="item">
+      <view class="title">入驻天数</view>
+      {{diffday}}天
+    </view>
+  </view>
+</view>
+
+<view class="list-box">
+  <view class="list-box-left">
+    <view class="item solid-bottom">设备号</view>
+    <block wx:for="{{devicelist}}" wx:key="id">
+      <view class="item">
+        <view class="item-not0">
+          <image src='/images/operation/bh.png' class="icon"/>
+          <view class="text-grey">{{item.deviceNo}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="list-box-right">
+    <scroll-view  scroll-x class="scroll" enable-flex>
+       <view class="item">
+          <view class="right-public  solid-bottom address">位置编号</view>
+          <view class="right-public  solid-bottom">扫码次</view>
+          <view class="right-public  solid-bottom">成交次</view>
+          <view class="right-public  solid-bottom">销售额</view>
+          <view class="right-public  solid-bottom">利润</view>
+          <view class="right-public  solid-bottom">补货次数</view>
+      </view>
+      <block wx:for="{{devicelist}}" wx:key="id">
+        <view class="item">
+          <view class="item-not0">
+            <view class="right-public address">{{item.remarks}}</view>
+            <view class="right-public">{{item.ScanNum}}</view>
+            <view class="right-public">{{item.SaleNum}}</view>
+            <view class="right-public">￥{{item.SalePrice}}</view>
+            <view class="right-public">￥{{item.ProfitPrice}}</view>
+            <view class="right-public">{{item.RepairNum}}</view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
