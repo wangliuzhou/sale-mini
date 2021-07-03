@@ -19,114 +19,6 @@
           "scene": null
         },
         {
-          "name": "pages/role/roleType/index",
-          "pathName": "pages/role/roleType/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/role/roleList/index",
-          "pathName": "pages/role/roleList/index",
-          "query": "id=2&type=点位管理员",
-          "scene": null
-        },
-        {
-          "name": "pages/role/roleDetail/index",
-          "pathName": "pages/role/roleDetail/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/mine/index",
-          "pathName": "pages/mine/index",
-          "query": "id=2&type=点位管理员",
-          "scene": null
-        },
-        {
-          "name": "pages/point/pointList/index",
-          "pathName": "pages/point/pointList/index",
-          "query": "id=2&type=点位管理员",
-          "scene": null
-        },
-        {
-          "name": "pages/scheme/schemeList/index",
-          "pathName": "pages/scheme/schemeList/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/scheme/schemeDetail/index",
-          "pathName": "pages/scheme/schemeDetail/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/scheme/cateList/index",
-          "pathName": "pages/scheme/cateList/index",
-          "query": "index=0",
-          "scene": null
-        },
-        {
-          "name": "pages/seviceIn/index",
-          "pathName": "pages/seviceIn/index",
-          "query": "id=12",
-          "scene": null
-        },
-        {
-          "name": "pages/syncScheme/index",
-          "pathName": "pages/syncScheme/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/order/orderList/index",
-          "pathName": "pages/order/orderList/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/order/orderDetail/index",
-          "pathName": "pages/order/orderDetail/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/data/index",
-          "pathName": "pages/data/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/moneyDetail/index",
-          "pathName": "pages/moneyDetail/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/accountBind/index",
-          "pathName": "pages/accountBind/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/changePsw/index",
-          "pathName": "pages/changePsw/index",
-          "query": "id=2",
-          "scene": null
-        },
-        {
-          "name": "pages/withdraw/index",
-          "pathName": "pages/withdraw/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/order/afterSale/index",
-          "pathName": "pages/order/afterSale/index",
-          "query": "id=3",
-          "scene": null
-        },
-        {
           "name": "pages/operation/operationList/index",
           "pathName": "pages/operation/operationList/index",
           "query": "",
@@ -159,6 +51,31 @@
         {
           "name": "pages/operation/saledTest/index",
           "pathName": "pages/operation/saledTest/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/operation/deviceSettings/index",
+          "pathName": "pages/operation/deviceSettings/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/operation/deviceTest/index",
+          "pathName": "pages/operation/deviceTest/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/operation/replenishment/index",
+          "pathName": "pages/operation/replenishment/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/operation/pointKTV/index",
+          "pathName": "pages/operation/pointKTV/index",
+          "query": "id=2",
           "scene": null
         }
       ]

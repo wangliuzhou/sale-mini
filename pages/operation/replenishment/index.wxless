@@ -1,0 +1,35 @@
+.list {
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding:24rpx;
+  box-sizing: border-box;
+
+  .item {
+    width: 340rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24rpx;
+    box-sizing: border-box;
+    box-shadow: 10rpx 0rpx 20rpx rgba(0, 0, 0, 0.1);
+    border-radius: 12rpx;
+    margin-bottom: 24rpx;
+    .left {
+      .name{
+        font-weight: 600;
+      }
+      .desc{
+        font-size: 24rpx;
+        margin-top:8rpx;
+      }
+    }
+    .right{
+      image{
+        width:90rpx;
+        height: 90rpx;
+      }
+    }
+  }
+}

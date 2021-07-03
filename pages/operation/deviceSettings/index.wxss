@@ -1,1 +1,57 @@
-/* pages/operation/deviceSettings/index.wxss */
+.settin-service {
+  background: #fff;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 24rpx;
+}
+.service-box {
+  background: #fff;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+}
+.service-box .service-number-box,
+.service-box .service-status-box {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  border-bottom: 1px solid #eee;
+}
+.service-box .service-number-box .label,
+.service-box .service-status-box .label {
+  width: 160rpx;
+}
+.service-box .service-number-box .content,
+.service-box .service-status-box .content {
+  margin-right: 48rpx;
+}
+.bel-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+}
+.bel-content .title-text {
+  font-weight: 600;
+  font-size: 30rpx;
+  margin: 36rpx 0 0 0;
+}
+.bel-content .picker-box {
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+}
+.bel-content .picker-box .picker-com {
+  flex: 1;
+  width: 220rpx;
+  text-align: center;
+}
+.bel-content button,
+.bel-content .marginbottom48 {
+  margin-bottom: 48rpx;
+}

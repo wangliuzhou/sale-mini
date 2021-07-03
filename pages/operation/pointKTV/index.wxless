@@ -1,0 +1,137 @@
+.image-box {
+  text-align: center;
+  background: #fff;
+  padding: 24rpx 0;
+
+  image {
+    width: 200rpx;
+    height: 180rpx;
+  }
+}
+
+.que-huo-box {
+  background: #fff;
+  padding: 24rpx;
+  box-sizing: border-box;
+  margin: 24rpx 0;
+
+  .title {
+    font-weight: 600;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    margin-top: 36rpx;
+
+    .left {
+      width: 120rpx;
+      height: 120rpx;
+      margin-right: 24rpx;
+    }
+  }
+}
+
+.list-title {
+  background: #fff;
+  display: flex;
+  padding: 24rpx;
+  box-sizing: border-box;
+
+  .service-num {
+    flex: 0.4;
+  }
+
+  .service-location {
+    flex: 0.4;
+
+  }
+
+  .service-less-box {
+    flex: 0.2;
+  }
+}
+
+.service-list {
+  background: #fff;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+
+  .item {
+    margin-bottom: 48rpx;
+
+    .top {
+      display: flex;
+      width: 100%;
+      align-items: center;
+
+      .service-num {
+        flex: 0.4;
+        display: flex;
+        align-items: center;
+      }
+
+      .service-location {
+        flex: 0.4;
+      }
+
+      .service-less-box {
+        flex: 0.2;
+      }
+
+      .icon-image {
+        width: 36rpx;
+        height: 36rpx;
+        margin-right: 8rpx;
+      }
+
+      .service-less-box {
+        display: flex;
+        flex-wrap: wrap;
+
+        .less-box {
+          background: rgb(255, 193, 24);
+          padding: 4rpx 8rpx;
+          box-sizing: border-box;
+          color: #fff;
+          border-radius: 4rpx;
+          margin-right: 12rpx;
+          margin-bottom: 4rpx;
+        }
+      }
+    }
+
+    .bottom {
+      display: flex;
+      flex-wrap: wrap;
+
+      .item {
+        width: 320rpx;
+        display: flex;
+        align-items: center;
+
+        image {
+          width: 48rpx;
+          height: 48rpx;
+          margin-right: 12rpx;
+        }
+
+        .name {
+          font-size: 24rpx;
+        }
+
+        .flex {
+          display: flex;
+
+          .number {
+            background: rgb(255, 193, 24);
+            padding: 4rpx 8rpx;
+            box-sizing: border-box;
+            color: #fff;
+            border-radius: 4rpx;
+          }
+        }
+      }
+    }
+  }
+}

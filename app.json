@@ -33,7 +33,8 @@
     "pages/operation/notScanWarn/index",
     "pages/operation/deviceBreakdown/index",
     "pages/data/moreData/index",
-    "pages/data/pointData/index"
+    "pages/data/pointData/index",
+    "pages/operation/pointKTV/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

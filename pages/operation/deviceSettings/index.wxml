@@ -1,2 +1,43 @@
-<!--pages/operation/deviceSettings/index.wxml-->
-<text>pages/operation/deviceSettings/index.wxml</text>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">设备设置</view>
+</cu-custom>
+<view class="settin-service">
+  <view class="text">已设置设备</view>
+  <view class="cuIcon-right"></view>
+</view>
+<view class="service-box">
+  <view class="service-number-box" bindtap='scan'>
+    <view class="label">设备号</view>
+    <view class="content {{serviceNumber?'':'text-grey'}}">
+      {{serviceNumber?serviceNumber:'扫一扫显示设备号'}}
+    </view>
+    <view class="cuIcon-scan text-grey"></view>
+  </view>
+  <view class="service-status-box">
+    <view class="label">设备状态</view>
+    <view class="content {{serviceStatus?'':'text-grey'}}">
+      {{serviceStatus?serviceStatus:'未连接'}}
+    </view>
+  </view>
+</view>
+<view class="bel-content">
+  <view class="title-text">开灯时间设置 - 内圈灯</view>
+  <view class="picker-box text-grey">
+    <picker mode="time" class='picker-com' value="{{startTime}}" bindchange="TimeChange" data-type='startTime'>
+      <view>{{startTime?startTime:'请选择开始时间'}}</view>
+    </picker>
+    --
+    <picker mode="time" class='picker-com' value="{{endTime}}" bindchange="TimeChange" data-type='endTime'>
+      <view>{{endTime?endTime:'请选择结束时间'}}</view>
+    </picker>
+  </view>
+  <button class="cu-btn bg-red shadow-blur">确认灯光打开时间设置-内圈灯</button>
+  <view class="text-red">*选择时间，点击确认设置后，检查机器当前时间</view>
+  <view class="text-red marginbottom48">和定时设置 已校验设置是否生效</view>
+  <view class="text-blue marginbottom48">机器当前时间：</view>
+  <view class="text-blue marginbottom48">机器定时设置：</view>
+
+  <button class="cu-btn bg-blue shadow-blur">点此设置灯光常亮</button>
+  <button class="cu-btn bg-blue shadow-blur">点此设置灯光常暗</button>
+</view>

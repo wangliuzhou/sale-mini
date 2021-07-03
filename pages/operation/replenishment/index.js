@@ -1,18 +1,37 @@
-// pages/operation/replenishment/index.js
+import { post } from "../../../utils/request";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getList()
+  },
+  async getList() {
+    const { data = {} } = await post({
+      r: 'manage.operation.get_list'
+    })
+    let list = []
+    for (let key in data) {
+      list.push(data[key])
+    }
+    // list = list.concat(list).concat(list).concat(list).concat(list).concat(list).concat(list).concat(list).concat(list).concat(list)
+    this.setData({ list })
+    console.log(this.data.list);
+  },
+  goPage(e){
+    const { id } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: '/pages/operation/pointKTV/index?id='+id,
+    })
   },
 
   /**

@@ -1,2 +1,17 @@
-<!--pages/operation/replenishment/index.wxml-->
-<text>pages/operation/replenishment/index.wxml</text>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">补货管理</view>
+</cu-custom>
+<view class="list">
+  <block wx:for="{{list}}" wx:key='id'>
+    <view class="item" bindtap='goPage' data-id='{{item.id}}'>
+      <view class="left">
+        <view class="name">{{item.username}}</view>
+        <view class="desc text-grey">缺货设备{{item.device_num}}台</view>
+      </view>
+      <view class="right">
+        <image src='../../../images/point.png'/>
+      </view>
+    </view>
+  </block>
+</view>

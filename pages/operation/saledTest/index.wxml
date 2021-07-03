@@ -3,5 +3,31 @@
   <view slot="content">消费出货测试</view>
 </cu-custom>
 
-<button bindtap='searchBLE'>搜搜</button>
-<button bindtap='scan'>scan</button>
+<!-- <button bindtap='searchBLE'>搜搜</button> -->
+<view class="service-box">
+  <view class="service-number-box" bindtap='scan'>
+    <view class="label">设备号</view>
+    <view class="content {{serviceNumber?'':'text-grey'}}">
+      {{serviceNumber?serviceNumber:'扫一扫显示设备号'}}
+    </view>
+    <view class="cuIcon-scan text-grey"></view>
+  </view>
+  <view class="service-status-box">
+    <view class="label">设备状态</view>
+    <view class="content {{serviceStatus?'':'text-grey'}}">
+      {{serviceStatus?serviceStatus:'未连接'}}
+    </view>
+  </view>
+</view>
+<view class="content-box">
+  <view class="number-box">
+    <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:key='*this'>
+      <view class="item">
+        <view>{{item}}号</view>
+        格子
+      </view>
+    </block>
+  </view>
+  <view class="text">*1. 此模式下请操作间隔10s</view>
+  <view class="text">*2. 出货后无法自动复位，请用设备测试复位功能复位</view>
+</view>

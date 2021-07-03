@@ -1,1 +1,50 @@
-/* pages/operation/deviceTest/index.wxss */
+.service-box {
+  background: #fff;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+}
+.service-box .service-number-box,
+.service-box .service-status-box {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  border-bottom: 1px solid #eee;
+}
+.service-box .service-number-box .label,
+.service-box .service-status-box .label {
+  width: 160rpx;
+}
+.service-box .service-number-box .content,
+.service-box .service-status-box .content {
+  margin-right: 48rpx;
+}
+.content-box {
+  background: #fff;
+  padding: 108rpx;
+  box-sizing: border-box;
+}
+.content-box .number-box {
+  display: grid;
+  gap: 24rpx;
+  grid-template-columns: repeat(3, 33.33%);
+  padding-left: 24rpx;
+}
+.content-box .number-box .item {
+  background: #8a8ae0;
+  width: 108rpx;
+  text-align: center;
+  border-radius: 16rpx;
+  color: #fff;
+  padding: 12rpx 0;
+}
+.content-box .light-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-top: 48rpx;
+}
+.content-box .width100 {
+  width: 100%;
+  margin-top: 48rpx;
+}

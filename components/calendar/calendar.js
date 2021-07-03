@@ -1,6 +1,9 @@
 // components/calendar/calendar.js
 import { formatDate, formatTime } from "./../../utils/util";
 Component({
+  options: {
+    addGlobalClass: true,
+  },
   /**
    * 组件的属性列表
    */

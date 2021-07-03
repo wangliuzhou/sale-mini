@@ -1,0 +1,72 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">点位KTV</view>
+</cu-custom>
+<view class="cu-bar search bg-white">
+  <view class="search-form round">
+    <text class="cuIcon-search">{{}}</text>
+    <input type="text" placeholder="输入设备信息" confirm-type="search" bindinput='handleInput' value='{{keyword}}' />
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow-blur round" bindtap='search'>搜索</button>
+  </view>
+</view>
+<view class="image-box" bindtap='scan'>
+  <image src='../../../images/scan.png' />
+  <view style='margin-right:30rpx'>点击扫码补货</view>
+</view>
+<view class="que-huo-box">
+  <view class="title">缺货商品信息</view>
+  <block wx:for="{{goodslist}}" wx:key="goodsid">
+    <view class="item">
+      <image class="left" src='{{item.thumb}}'></image>
+      <view class="right">
+        {{item.title}}
+        <view class="box">适应格子：</view>
+        <view class="box">
+          缺货数量：
+          <text class="text-red">{{item.num}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view class="list-title">
+  <view class="service-num">设备号</view>
+  <view class="service-location">摆放位置</view>
+  <view class="service-less-box">缺货格子</view>
+</view>
+<view class="service-list">
+  <blcok wx:for="{{devicelist}}" wx:key="index">
+    <view class="item">
+      <view class="a">
+        <view class="top">
+          <view class="service-num">
+            <image class="icon-image" src='../../../images/operation/bh.png'></image>
+            <view class="num">{{item.deviceNo}}</view>
+          </view>
+          <view class="service-location">{{item.remarks}}</view>
+          <view class="service-less-box">
+            <blcok wx:for="{{item.goodslist}}" wx:for-item="it" wx:key="index">
+              <view class="less-box">{{it.cellNo}}</view>
+            </blcok>
+          </view>
+        </view>
+        <view class="bottom">
+          <blcok wx:for="{{item.goodslist}}" wx:for-item="it" wx:key="index">
+            <view class="item">
+              <image src='{{it.thumb}}'></image>
+              <view class="right">
+                <view class="name text-grey">{{it.title}}</view>
+                <view class="name text-grey flex">
+                  格子号：
+                  <view class="number">{{it.cellNo}}</view>
+                </view>
+              </view>
+            </view>
+          </blcok>
+        </view>
+      </view>
+    </view>
+  </blcok>
+</view>
