@@ -30,4 +30,14 @@
   </view>
   <view class="text">*1. 此模式下请操作间隔10s</view>
   <view class="text">*2. 出货后无法自动复位，请用设备测试复位功能复位</view>
+  <button class="text" bind:tap='searchBLE' data-type='0'>点击获取电量</button>
+  <button class="text" bind:tap='searchBLE' data-type='1'>启动全部电机</button>
+  <button class="text" bind:tap='searchBLE' data-type='2' disabled>启动某一电机</button>
+  <button class="text" bind:tap='searchBLE' data-type='3'>开灯 30S</button>
+  <button class="text" bind:tap='searchBLE' data-type='4'>开灯 60S</button>
+  <button class="text" bind:tap='searchBLE' data-type='5'>开灯长亮</button>
+  <button class="text" bind:tap='searchBLE' data-type='6'>关灯</button>
+  <button class="text" bind:tap='searchBLE' data-type='7'>打开 USB</button>
+  <button class="text" bind:tap='searchBLE' data-type='8'>关闭 USB</button>
+  <button class="text" bind:tap='searchBLE' data-type='9' disabled>定时打开 USB</button>
 </view>
