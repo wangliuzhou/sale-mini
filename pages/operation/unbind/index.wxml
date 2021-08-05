@@ -5,7 +5,7 @@
 <view class="contenta">
   设备号
   <view class="scan-box text-grey margin-left-lg" bindtap='scan'>
-    扫一扫显示设备号
+    {{deviceNo?deviceNo:'扫一扫显示设备号'}}
     <text class='cuIcon-scan margin-left-xs'></text>
   </view>
   <view class="submit-btn">

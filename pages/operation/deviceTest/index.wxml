@@ -5,8 +5,8 @@
 <view class="service-box">
   <view class="service-number-box" bindtap='scan'>
     <view class="label">设备号</view>
-    <view class="content {{serviceNumber?'':'text-grey'}}">
-      {{serviceNumber?serviceNumber:'扫一扫显示设备号'}}
+    <view class="content {{deviceNumber?'':'text-grey'}}">
+      {{deviceNumber?deviceNumber:'扫一扫显示设备号'}}
     </view>
     <view class="cuIcon-scan text-grey"></view>
   </view>
@@ -16,9 +16,15 @@
       {{serviceStatus?serviceStatus:'未连接'}}
     </view>
   </view>
+  <view class="service-status-box">
+    <view class="label">电量值</view>
+    <view class="content {{electricNumber!==null?'':'text-grey'}}">
+      {{electricNumber!==null?electricNumber+'%':'未读取'}}
+    </view>
+  </view>
 </view>
 <view class="content-box">
-  <view class="number-box">
+  <!-- <view class="number-box">
     <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:key='*this'>
       <view class="item">
         <view>{{item}}号</view>
@@ -28,8 +34,8 @@
   </view>
   <view class="light-box">
     <button class="cu-btn bg-yellow shadow-blur">开灯</button>
-    <button class="cu-btn bg-red shadow-blur">开灯</button>
+    <button class="cu-btn bg-red shadow-blur">关灯</button>
   </view>
-  <button class="cu-btn bg-blue shadow-blur width100">复位</button>
-  <button class="cu-btn bg-blue shadow-blur width100">电量（点击读取）</button>
+  <button class="cu-btn bg-blue shadow-blur width100">复位</button> -->
+  <button class="cu-btn bg-blue shadow-blur width100" bind:tap='searchBLE' data-type='0' disabled="{{!deviceNumber}}">电量（点击读取）</button>
 </view>

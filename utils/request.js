@@ -20,6 +20,9 @@ const request = ({ method, data, header }) => {
           url: "/pages/login/index"
         });
       } else {
+        // wx.showModal({
+        //   content: JSON.stringify(data),
+        // })
         wx.showToast({
           title: data.message || "服务器异常",
           icon: "none"

@@ -19,6 +19,9 @@ Page({
     wx.scanCode({
       success: res => {
         console.log(res);
+        this.setData({
+          deviceNo: res.result
+        })
       },
       fail: () => {
         wx.showToast({

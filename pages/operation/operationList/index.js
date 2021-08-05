@@ -6,11 +6,11 @@ Page({
    */
   data: {
     list: [
-      {
-        title: '设备设置',
-        icon: 'sbsz',
-        path: '/pages/operation/deviceSettings/index'
-      },
+      // {
+      //   title: '设备设置',
+      //   icon: 'sbsz',
+      //   path: '/pages/operation/deviceSettings/index'
+      // },
       {
         title: '设备测试',
         icon: 'sbcs',
@@ -36,16 +36,16 @@ Page({
         icon: 'dlyj',
         path: '/pages/operation/electricityWarn/index'
       },
-      {
-        title: '未扫码预警',
-        icon: 'wsmyj',
-        path: '/pages/operation/notScanWarn/index'
-      },
-      {
-        title: '故障设备',
-        icon: 'gzsb',
-        path: '/pages/operation/deviceBreakdown/index'
-      },
+      // {
+      //   title: '未扫码预警',
+      //   icon: 'wsmyj',
+      //   path: '/pages/operation/notScanWarn/index'
+      // },
+      // {
+      //   title: '故障设备',
+      //   icon: 'gzsb',
+      //   path: '/pages/operation/deviceBreakdown/index'
+      // },
     ]
   },
 

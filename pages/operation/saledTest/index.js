@@ -1,10 +1,9 @@
-// pages/operation/saledTest/index.js
+
 import wlz from '../../../helper/index'
 Page({
-  sreachBLEName: "HLB",
+  deviceNumber: "",
   deviceId: '',
   targetService: 'FCF0',
-
   serviceId: '',
   targetFCF1: 'FCF1',
   targetFCF2: 'FCF2',
@@ -14,27 +13,35 @@ Page({
   orderObj: {
     0: [], // 读电量
     1: [0xa5, 0x01, 0x0b],  // 开启全部电机
-    2: [], // 打开某一电机
-    3: [0xa5, 0x01, 0x06], // 开灯30s
-    4: [0xa5, 0x01, 0x0c],
-    5: [0xa5, 0x01, 0x07],
-    6: [0xa5, 0x01, 0x08],
-    7: [0xa5, 0x01, 0x09],
-    8: [0xa5, 0x01, 0x0a],
-    9: []  // 定时打开
+    2: [], // 打开某一电机, openDevice有赋值
+    3: [0xa5, 0x01, 0x06], // 开灯30s 暂时不用的指令
+    4: [0xa5, 0x01, 0x0c], // 暂时不用的指令
+    5: [0xa5, 0x01, 0x07], // 暂时不用的指令
+    6: [0xa5, 0x01, 0x08], // 暂时不用的指令
+    7: [0xa5, 0x01, 0x09], // 暂时不用的指令
+    8: [0xa5, 0x01, 0x0a], // 暂时不用的指令
+    9: []  // 定时打开,暂时不用的指令
   },
-  data: {},
+  data: {
+    deviceNumber: '',
+    serviceStatus: '',
+    electricNumber: null
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (options) {},
+  onUnload(){
+    wlz.closeBluetoothAdapter();
+    console.log('关闭了蓝牙');
   },
   scan() {
     wx.scanCode({
       success: res => {
         console.log(res);
+        this.deviceNumber = res.result;
+        this.setData({ deviceNumber: res.result })
       },
       fail: () => {
         wx.showToast({
@@ -49,28 +56,33 @@ Page({
     this.type = parseInt(type)
     const that = this;
     wlz.closeBluetoothAdapter();
-    const openBluetooth = await wx.openBluetoothAdapter();
-    if (openBluetooth.errMsg == 'openBluetoothAdapter:ok') {
+    wx.openBluetoothAdapter().then(res=>{
+      wx.showLoading({ title: "设备搜索中" });
+      let bles = []
       setTimeout(async () => {
         wx.onBluetoothDeviceFound(({ devices }) => {
           console.log('search list', devices);
           devices.forEach(item => {
+            const isExist = bles.find(ble => ble.name == item.name)
+            if (!isExist) {
+              bles.push(item)
+              console.log('全部蓝牙', bles);
+            }
             //找到指定设备，关闭搜索
-            if (item.name === this.sreachBLEName) {
+            if (item.name === this.deviceNumber) {
               wlz.stopBluetoothDevicesDiscovery();
               const { deviceId } = item;
               this.deviceId = deviceId;
+              wx.showLoading({ title: "设备连接中" });
               that.createBLEConnection(item)
             }
           })
         })
         await wlz.startBluetoothDevicesDiscovery()
       }, 300);
-    } else {
-      // errcode
-      console.log(openBluetooth);
-      // ios 13提醒权限10001
-    }
+    }).catch(err=>{
+      wx.showModal({ content: '请确保微信拥有了蓝牙权限，且蓝牙处于打开状态' });
+    })
   },
   async createBLEConnection(obj) {
     // 该方法回调中可以用于处理连接意外断开等异常情况
@@ -81,6 +93,7 @@ Page({
     const { errCode } = await wlz.createBLEConnection({ deviceId: this.deviceId })
     if (errCode == 0) {
       this.getBLEDeviceServices()
+      this.setData({ serviceStatus: '已连接' })
     } else {
       wx.showModal({ content: '连接超时，请重试' })
       wlz.closeBluetoothAdapter();
@@ -94,9 +107,11 @@ Page({
         //  获取服务列表 找到特定服务
         if (uuid.toUpperCase().indexOf(this.targetService) !== -1) {
           this.serviceId = uuid;
+          wx.showLoading({ title: "获取到指定服务" });
         }
       })
       if (!this.serviceId) {
+        wx.hideLoading()
         wx.showModal({ content: '未找到特定服务' })
         wlz.closeBluetoothAdapter();
         return
@@ -116,6 +131,7 @@ Page({
       characteristics.forEach(({ uuid }) => {
         if (uuid.indexOf(this.targetFCF1) > -1) {
           this.FCF1 = uuid
+          wx.showLoading({ title: "获取到指定特征值" });
         }
         if (uuid.indexOf(this.targetFCF2) > -1) {
           this.FCF2 = uuid
@@ -123,6 +139,8 @@ Page({
       })
       this.notifyBLECharacteristicValueChange()
       // this.writeBLECharacteristicValue()
+    }else{
+      wx.hideLoading()
     }
   },
   // 订阅特征值改变
@@ -134,22 +152,28 @@ Page({
       characteristicId: this.FCF1 //服务特征值characteristicId
     })
     if (errCode === 0) {
+      wx.showLoading({ title: "蓝牙连接成功" });
+      setTimeout(()=>{ wx.hideLoading() },300)
       // 监听低功耗蓝牙设备的特征值变化
       wx.onBLECharacteristicValueChange(res => {
-        let HexString = this.arrayBufferToHexString(res.value)  // 转变成正常字符串
+        let HexString = this.arrayBufferToHexString(res.value)  // 转变成16进制的字符串
         console.log('HexString', HexString);
+        if(HexString.startsWith('00')){
+          const electricNumber = parseInt(HexString, 16)
+          this.setData({ electricNumber })
+        }
       });
-      if(this.type===0){
+      if (this.type === 0) {
         const readRes = await wlz.readBLECharacteristicValue({
           deviceId: this.deviceId, //蓝牙设备id
           serviceId: this.serviceId, //服务id
           characteristicId: this.FCF1 //服务特征值characteristicId
         })
-        console.log('readRes',readRes);
-      }else{
+        console.log('readRes', readRes);
+      } else {
         // 写入数据
-        const order = this.orderObj[this.type] 
-        console.log(77,order);
+        const order = this.orderObj[this.type]
+        console.log(77, order);
         this.writeBLECharacteristicValue(order)
       }
     }
@@ -193,4 +217,27 @@ Page({
     }
     return hexStr.toUpperCase();
   },
+  // 打开某一电机柜
+  openDevice(e){
+    if(this.data.deviceNumber){
+      const { number } = e.currentTarget.dataset; // 想要打开几号柜
+      console.log(number); 
+      const hexNumber = parseInt(number, 16)
+      // const hexNumber = number.toString(16)
+      console.log('hexNumber',hexNumber);
+      this.orderObj[2] = [0xa5, 0x02, hexNumber, 0x05];
+      this.searchBLE({
+        currentTarget:{
+          dataset:{
+            type: 2
+          }
+        }
+      })
+    }else{
+      wx.showToast({
+        title: '请先扫描获取设备号',
+        icon: 'none'
+      })
+    }
+  }
 })
