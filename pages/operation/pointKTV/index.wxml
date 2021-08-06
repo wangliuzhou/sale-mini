@@ -2,7 +2,7 @@
   <view slot="backText">返回</view>
   <view slot="content">点位KTV</view>
 </cu-custom>
-<view class="cu-bar search bg-white">
+<!-- <view class="cu-bar search bg-white">
   <view class="search-form round">
     <text class="cuIcon-search">{{}}</text>
     <input type="text" placeholder="输入设备信息" confirm-type="search" bindinput='handleInput' value='{{keyword}}' />
@@ -10,7 +10,7 @@
   <view class="action">
     <button class="cu-btn bg-green shadow-blur round" bindtap='search'>搜索</button>
   </view>
-</view>
+</view> -->
 <view class="image-box" bindtap='scan'>
   <image src='../../../images/scan.png' />
   <view style='margin-right:30rpx'>点击扫码补货</view>

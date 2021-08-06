@@ -1,0 +1,51 @@
+.device-number-box {
+  background: #fff;
+  line-height: 80rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eee;
+}
+.list {
+  background: #fff;
+  box-sizing: border-box;
+  padding: 24rpx 24rpx;
+}
+.list .item {
+  padding: 24rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+.list .item .left {
+  display: flex;
+  align-items: center;
+}
+.list .item .left .image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 24rpx;
+}
+.list .item .right {
+  display: flex;
+  align-items: center;
+}
+.list .item .right view {
+  margin-left: 24rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #ff5f5f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.list .item .right .confirm {
+  background: orange;
+}
+.width100 {
+  width: 100%;
+  margin-bottom: 48rpx;
+}
+.opacity {
+  opacity: 0.3;
+}

@@ -1,0 +1,24 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">补货</view>
+</cu-custom>
+<view class="device-number-box">设备号：{{deviceNo}}</view>
+<view class="list">
+  <block wx:for="{{list}}" wx:key="cellNo">
+    <view class="item">
+      <view class="left">
+        <image class="image" src='{{item.thumb}}' />
+        <view class="title-number-box">
+          <view class="title">{{item.title}}</view>
+          <view class="title">对应格子：<text style='color:orange'>{{item.cellNo}}</text></view>
+        </view>
+      </view>
+      <view class="right">
+        <view class="out" bind:tap='openDevice' data-number='{{item.cellNo}}'>出仓</view>
+        <view class="confirm {{item.isConfirmed?'opacity':''}}" bind:tap='confirm' data-number='{{item.cellNo}}'>确认</view>
+      </view>
+    </view>
+  </block>
+</view>
+<button class="cu-btn bg-blue shadow-blur width100" bind:tap='searchBLE' data-type='1'>一键出仓</button>
+<button class="cu-btn bg-blue shadow-blur width100" bindtap='confirmAll'>一键确认</button>

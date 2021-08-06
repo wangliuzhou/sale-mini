@@ -20,6 +20,7 @@ const request = ({ method, data, header }) => {
           url: "/pages/login/index"
         });
       } else {
+        console.log('请求出错', data);
         // wx.showModal({
         //   content: JSON.stringify(data),
         // })

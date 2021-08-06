@@ -42,6 +42,11 @@ Page({
       starttime: starttime ? formatDate(new Date(starttime)) : "",
       endtime: endtime ? formatDate(new Date(endtime)) : ""
     });
+    console.log('page',page);
+    console.log('type',index);
+    console.log('starttime', starttime ? starttime : "");
+    console.log('endtime', endtime ? formatDate(new Date(endtime)) : "");
+    
     let { total, list, money } = data
     list = this.data.list.concat(list);
     this.setData({ list, total, money });

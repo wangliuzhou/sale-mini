@@ -25,7 +25,7 @@
 				</view>
 			</view>
 		</view>
-		<view class='middle-rigth'>{{sell_cellNo}}号柜</view>
+		<view class='middle-rigth'>{{sell_cellNo}}柜</view>
 	</view>
 	<view class='bottom'>
 		<view class="left text-grey">

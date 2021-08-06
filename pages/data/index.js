@@ -95,6 +95,8 @@ Page({
       endtime: endtime ? formatDate(new Date(endtime)) : ""
     })
     console.log('init data', data);
+    console.log('starttime', starttime ? formatDate(new Date(starttime)) : "");
+    console.log('endtime', endtime ? formatDate(new Date(endtime)) : "");
 
     this.setData(data)
     if (data.chartlist) {

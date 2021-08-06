@@ -48,6 +48,8 @@ Component({
       const a = formatDate(begin);
       const b = formatDate(end);
       this.setData({ formatDateText: a + " 至 " + b });
+      console.log(begin,formatTime(begin));
+      
       const begin2 = formatTime(begin);
       const end2 = formatTime(end);
       this.triggerEvent("OnRangeComplete", { begin: begin2, end: end2 });

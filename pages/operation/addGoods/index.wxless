@@ -1,0 +1,57 @@
+.device-number-box {
+  background: #fff;
+  line-height: 80rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eee;
+}
+
+.list {
+  background: #fff;
+  box-sizing: border-box;
+  padding: 24rpx 24rpx;
+
+  .item {
+    padding: 24rpx 0;
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      .image {
+        width: 100rpx;
+        height: 100rpx;
+        margin-right: 24rpx;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+
+      view {
+        margin-left: 24rpx;
+        width: 80rpx;
+        height: 80rpx;
+        border-radius: 50%;
+        background: rgb(255, 95, 95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+      .confirm{
+        background: orange;
+      }
+    }
+  }
+}
+.width100{
+  width:100%;
+  margin-bottom:48rpx;
+}
+.opacity{
+  opacity: 0.3;
+}

@@ -34,7 +34,8 @@
     "pages/operation/deviceBreakdown/index",
     "pages/data/moreData/index",
     "pages/data/pointData/index",
-    "pages/operation/pointKTV/index"
+    "pages/operation/pointKTV/index",
+    "pages/operation/addGoods/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

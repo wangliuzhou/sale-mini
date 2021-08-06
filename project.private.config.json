@@ -77,6 +77,12 @@
           "pathName": "pages/operation/pointKTV/index",
           "query": "id=2",
           "scene": null
+        },
+        {
+          "name": "pages/operation/addGoods/index",
+          "pathName": "pages/operation/addGoods/index",
+          "query": "deviceNo=11000173",
+          "scene": null
         }
       ]
     }

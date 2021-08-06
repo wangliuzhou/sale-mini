@@ -25,11 +25,6 @@ Page({
       r: 'manage.operation.get_lack',
       dealerid: this.data.id
     })
-    // data.devicelist = data.devicelist.concat( data.devicelist)
-    // data.goodslist = data.goodslist.concat( data.goodslist)
-    data.devicelist.forEach(item=>{
-      
-    })
     this.setData(data)
     console.log(data);
     
@@ -43,6 +38,16 @@ Page({
     wx.scanCode({
       success: res => {
         console.log(res);
+        if(res.result){
+          wx.navigateTo({
+            url: `/pages/operation/addGoods/index?deviceNo=${res.result}`,
+          })
+        }else{
+          wx.showToast({
+            title: "未获取到指定信息，请重试",
+            icon: "none"
+          });
+        }
       },
       fail: () => {
         wx.showToast({
